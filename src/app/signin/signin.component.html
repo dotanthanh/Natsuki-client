@@ -1,0 +1,24 @@
+<a *ngIf='largeSize()' (click)="signIn.open()">Sign In</a>
+<a *ngIf='!largeSize()' (click)="signIn.open()">Sign In</a>
+<modal #signIn
+      [hideCloseButton]="true"
+      [closeOnEscape]='false  '>
+
+  <modal-header id='signin-modal-header'>
+    Sign In
+  </modal-header>
+
+  <modal-content>
+    <div class="form">
+      <form class="signin-form" id='signin-form'>
+        <input type="text" placeholder="username" />
+        <input type="password" placeholder="password" />
+        <button type='submit' id='signin-account' >Create account</button>
+      </form>
+    </div>
+  </modal-content>
+
+  <modal-footer>
+  </modal-footer>
+
+</modal>

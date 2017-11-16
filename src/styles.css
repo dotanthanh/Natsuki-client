@@ -1,273 +1,278 @@
-/* You can add global styles to this file, and also import other style files */
-body {
-  width: inherit;
-  height: inherit;
-}
-
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto%20Slab:300,400,500,600,700);
 @import url(https://fonts.googleapis.com/css?family=Londrina+Solid);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 
-.container-fluid {
-  display: flex;
-  flex-direction: row;
-  color: white;
-  font-weight: bold;
-  letter-spacing: 0.15em;
-  font-size: 14px;
-  font-family: 'Open Sans';
-  text-decoration: none;
-  position: relative;
-  text-transform: uppercase;
-  height: 10em;
-  padding: 10px;
-  vertical-align: middle;
-  padding: 0px;
-  margin-top: 3%;
-  margin-left: 5%;
-  margin-right: 5%;
-  box-shadow: 4px 4px 4px rgba(60,60,60,0.7);
-  align-items: center;
-  background-color: rgba(171, 206, 231,0.7);
+
+/*start general style*/
+body {
+  margin: 0;
+  background-color: rgba(236, 240, 241,1.0);
 }
 
-.navbar-header {
-  background-image: url('https://www.compart.com/files/compart/media/icons/event-color.svg') !important;
-  background-size: contain !important;
-  position: absolute;
-  left: 5%;
-  width: 8em;;
-  height: 8em;
+div#main-container {
+  margin: 0 5%;
+  background-color: white;
 }
 
-.container-fluid div#nav-collapse {
-  position: absolute !important;
-  right: 10% !important;
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  align-items: center;
-  height: 10em;
+section.header, div.banner {
+  background-color: rgba(241, 196, 15,0.8);
 }
 
-li {
-  margin: 1em;
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
 }
 
-.navbar-toggle .icon-bar {
-  color: white !important;
+/* keep the scroll bar when display modals ( to not affect the general layout ) */
+.modal-open {
+  overflow: scroll;
+}
+
+/*end general style*/
+
+/* start header seaction */
+
+/* for header, both header (for all user) and header-user (when user log in) */
+
+section.header {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100px;
 }
 
 nav.navbar-default {
-  /*background: rgba(140,140,140,0.2) !important;*/
-  border-radius: 0px !important;
-  border: 0px !important;
-  background-color: white !important;
-  opacity: 1 !important;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  height: 100%;
+  border: solid 0px white !important;
 }
 
-.navbar-brand {
+div.container-fluid {
+  display: flex;
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+div.container-fluid div.mobile-header {
+  display: flex;
+  box-sizing: border-box;
+  height: 100%;
+  width: 70vw;
+  margin: 0 3% 0 3%;
+  position: relative;
+}
+
+div.container-fluid div.mobile-header div.search-bar {
+  left: 80px;
   position: absolute;
-  left: 5%;
+  margin: 0 6% 0 6%;
+  height: 100%;
+  width: 35vw;
+}
+
+div.container-fluid div.mobile-header div.search-bar form {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0;
+}
+
+form div.left-addon {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+form div.left-addon i {
+  position: absolute;
+  right: 0;
+  margin: 30px 0 30px 0;
+  font-size: 20px;
+  padding: 10px;
+  color: rgba(0,0,0,0.4);
+}
+
+div.container-fluid div.mobile-header div.search-bar input {
+  height: 40px;
+  width: 100%;
+  margin: 30px 0 30px 0;
+  border-radius: 2px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto';
+  font-size: 15px;
+  padding-left: 5%;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+div.navbar-header {
+  background-image: url('https://www.compart.com/files/compart/media/icons/event-color.svg') !important;
+  background-size: cover;
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  margin: 10px 0 10px 0;
+  box-sizing: border-box;
 }
 
 .container-fluid button {
-  position: absolute !important;
-  right: 0% !important;
-  border-radius: 0px !important;
-  border: solid 1px rgba(100,100,100,0.6) !important;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  right: 0;
+  box-sizing: border-box;
+  background-color: white;
+  margin: 25px 20px 25px 20px;
+  border-radius: 0px;
+  padding-left: 12.5px;
 }
 
-.banner {
-  opacity: 1;
-  font-family: 'Londrina Solid';
-  /*color: rgba(255,255,255,0.8);*/
-  color: rgba(0,0,0,0.8);
-  font-size: 4em;
-	font-weight: 300;
-	letter-spacing: 3.5px;
-	line-height: 1em;
+.container-fluid div#nav-collapse {
+  position: absolute;
+  right: 0;
+  height: 100% !important;
+  width: 40%;
+  padding: 10px 40px;
+  box-sizing: border-box;
+  margin: 0 5% 0 5%;
+  font-size: 11px;
+}
+
+ul.nav {
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  margin-right: 0;
+  padding: 20px;
+  list-style-type: none;
+  font-family: 'Roboto';
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: black;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.navbar-nav li {
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 0 10px;
+  text-decoration: none;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  background-color: rgba(255,255,255,1);
+  text-align: center;
+  font-size: 10px;
+  display: table;
+  line-height: 11px;
+  border-radius: 2px;
+  height: 100%;
+  font-weight: bold;
+}
+
+.navbar-nav li:hover, .navbar-nav li:active, .navbar-nav li:focus {
+  background: rgba(255,255,255,0.7);
+  cursor: pointer;
+}
+
+app-signup, app-signin, app-new-event {
   display: table-cell;
+  padding: 5px 0 5px 0;
+  height: 100%;
+  box-sizing: border-box;
+  color: rgba(0,0,0,0.8);
+  width: 100%;
+  height: 100%;
+}
+
+/*  end header section*/
+
+/*start banner section*/
+.banner {
+  font-family: 'Roboto';
+  color: rgba(0,0,0,0.8);
+  font-size: 3em;
+	font-weight: 300;
+	letter-spacing: 0.1em;
+	display: table-cell;
   text-align: center;
   vertical-align: middle;
-  width: inherit;
-  height: 60%;
-  transform: translate3d(0,0,0);
-  position: absolute;
-  top: 30%;
-  left: 10%;
-  right: 10%;
-  padding-top: 10%;
-  animation: arrive 0.5s linear forwards;
-}
-
-.header {
-  height: 500px;
-  background: white;
+  width: 100vw;
+  height: 400px;
+  padding-left: 7vw;
+  padding-right: 7vw;
   position: relative;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 }
 
-
-a {
-  transform: scale(1,1);
-  text-shadow: 1px 1px 1px rgba(60,60,60,0.2);
+div.bottom-shadow {
+  position: absolute;
+  bottom: 0;
+  left: 0 ;
+  right: 0;
+  width: 100%;
+  height: 100px;
+  box-shadow: inset 0px -18px 20px -3px rgba(0,0,0,0.1);
 }
 
-a:hover {
-  animation: press 0.1s linear forwards;
-}
+/*end banner section*/
 
-@keyframes arrive {
-  0% {
-    opacity: 0;
-    transform: translate3d(0,100px,0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0,0,0);
-  }
-}
-
-@keyframes press {
-  0% {
-    background-color: transparent;
-    transform: scale(1,1);
-  }
-  100% {
-    background-color: linear-gradient(rgba(255, 255, 255, 0.8),rgba(100, 100, 100, 0.5));
-    transform: scale(1.05,1.05);
-  }
-}
-
-/*here comes category section*/
+/* start general style for similar section of displaying events*/
 
 section.category, section.hot-events {
-  margin-left: 5%;
-  margin-right: 5%;
-  box-sizing: border-box;
+  width: 100%;
 }
 
-header {
-  display: flex;
-  align-items: center;
+section.category header, section.hot-events header {
   text-align: center;
-  position: relative;
-  margin: 0%;
-  border-top: solid 1px rgba(100,100,100,0.7);
-  box-sizing: content-box;
-}
-
-header span {
-  font-family: 'Open Sans';
-  font-size: 2.3rem;
-  letter-spacing: 0.3em;
-  text-align: center;
-  font-weight: bold;
+  font-family: 'Roboto';
+  font-size: 1.8em;
+  letter-spacing: 0.15em;
   color: rgba(0,0,0,0.8);
-  position: absolute;
-  line-height: 3em;
-  left: 20%;
-  margin-left: 100px;
-  margin-right: 100px;
-  right: 20%;
-  background: white;
-}
-
-.category, .hot-events {
+  font-weight: lighter;
+  margin-left: 15%;
+  margin-right: 15%;
+  position: relative;
+  background-image: url('assets/line.gif');
+  background-size: 100% 100%;
+  height: 3vw;
   display: flex;
   flex-direction: column;
-  padding-bottom: 10%;
-}
-
-section .row .col-md-12 {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
-}
-
-section.category .row {
-  background: linear-gradient(rgba(255,232,73,0.7), rgba(255,235,84,0.8)) !important;
-  padding-bottom: 5%;
-}
-
-.col-md-12 .item {
-  font-family: 'Open Sans';
-  border: solid 1px rgba(100,100,100,0.8);
-  padding: 3%;
-  margin: 1%;
-  margin-top: 2%;
-  box-shadow: 0px 0px 0px rgb(255,255,255,0);
-  transform: scale(1,1);
-  transition: transform 0.3s linear;
-  transition: box-shadow 0.3s linear;
   box-sizing: border-box;
-  font-size: 18px;
-  text-align: center;
-  background-color: rgba(255,255,255,0.8);
-  text-transform: uppercase;
-}
-
-.item span {
-  transform: translate3d(0,0,0);
-  opacity: 0;
-  transition: transform 0.3s linear;
-  transition: transform 0.3s linear forwards;
-}
-
-.item:hover span{
-  animation: category-hover 0.5s linear forwards;
-}
-
-.col-md-12 .item:hover {
-  cursor: pointer;
-  transition: box-shadow 3s linear forwards;
-  box-shadow: 3px 3px 3px rgba(60,60,60,0.7);
-}
-
-section.hot-events .row {
-  padding-bottom: 5%;
-  padding: 3%;
-  display: inline-block;
-}
-
-section.hot-events .row .col-md-3 {
-  border: solid 1px rgba(100,100,100,0.8);
-  text-align: center;
-  box-sizing: border-box;
-  text-transform: uppercase;
-  padding: 3%;
-  transform: scale(0.9,0.9);
-}
-
-@keyframes category-hover {
-  0% {
-    opacity: 0;
-    transform: translate3d(0,50px,0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0,0,0);
-  }
 }
 
 
 @media (max-width: 575px) {
-  .navbar-collapse {
-    visibility: hidden;
+  section.category header {
+    font-size: 1.2em;
   }
 
-  .category, .hot-events {
-    padding-bottom: 25%;
+  .banner {
+    font-size: 2.5em;
   }
+}
 
-  header span {
-    letter-spacing: 1.5px;
-    font-size: 2rem;
-    margin-left: 10px;
-    margin-right: 10px;
+section .row {
+  box-sizing: border-box;
+  margin: 40px 15vw;
+  font-family: 'Roboto';
+}
+
+/* start general style for similar section of displaying events*/
+
+section .row .col-md-12 .item:hover, section .row .col-md-3 div:hover  {
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  section .row .col-md-12 .item {
+    height: 120px;
+    width: 120px;
   }
 }

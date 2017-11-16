@@ -1,8 +1,5 @@
-<!-- header section -->
-<app-header></app-header>
-<div class='banner'>
-  Join us and find your favorite events !
+<div id='main-container'>
+  <app-header *ngIf='!isAuthenticated()'></app-header>
+  <app-header-user *ngIf='isAuthenticated()'></app-header-user>
+  <router-outlet></router-outlet>
 </div>
-<hr />
-<app-category-list></app-category-list>
-<app-hot-events></app-hot-events>

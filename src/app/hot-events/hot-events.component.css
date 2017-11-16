@@ -1,0 +1,30 @@
+section header span {
+  padding: 0 20px;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+section.hot-events .row {
+  box-sizing: border-box;
+  margin: 40px 8vw 100px;
+  font-family: 'Roboto';
+}
+
+section .row .col-md-3 {
+  box-sizing: border-box;
+  padding: 0 8px 20px;
+  margin: 0;
+}
+
+section .row .col-md-3 div {
+  background: linear-gradient(rgba(255, 76, 60, 0.8), rgba(231, 76, 60, 0.9));
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  height: 20vw;
+  text-align: center;
+  padding: 5vw;
+  text-transform: uppercase;
+  font-family: 'Roboto';
+  color: rgba(255,255,255,0.7);
+  border-radius: 2px;
+}
