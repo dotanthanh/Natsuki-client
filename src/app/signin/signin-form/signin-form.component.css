@@ -13,14 +13,14 @@ div.form {
 }
 
 /*styling the form container*/
-form#signup-form {
+form#signin-form {
   display: flex !important;
   flex-direction: column !important;
   padding: 30px;
 }
 
  /*styling the input field*/
-form#signup-form input {
+form#signin-form input {
   outline: 0;
   width: 100%;
   padding: 12px;
@@ -36,7 +36,7 @@ form#signup-form input {
 }
 
 /* styling the submit button */
-button#create-account {
+button#signing-in {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -63,10 +63,6 @@ span#message {
   letter-spacing: 1px;
   text-transform: none;
   color: rgba(216, 60, 60, 0.9);
-}
-
-span#message.success {
-  color: rgba(38, 175, 48,0.9);
 }
 
 input.ng-invalid.ng-touched {

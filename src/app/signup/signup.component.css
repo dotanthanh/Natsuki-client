@@ -4,6 +4,7 @@ div.modal-content {
   border-radius: 2px !important;
 }
 
+/* styling the header when in modal mode */
 #signup-modal-header {
   font-size: 20px !important;
   letter-spacing: 3px;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-signin',
@@ -7,18 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigninComponent implements OnInit {
 
-  constructor() { }
+  constructor(private utils: UtilsService) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  // check the viewport size to upadte the layout
+  largeSize() {
+    return this.utils.largeSize();
   }
 
-  largeSize(){
-    var size = window.innerWidth;
-    if (size<=767){
-      return false;
-    }
-    else {
-      return true;
-    }
+  inSignInLink() {
+    return this.utils.inSignInLink();
   }
 }

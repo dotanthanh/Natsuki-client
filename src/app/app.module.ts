@@ -19,6 +19,8 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { NewEventComponent } from './new-event/new-event.component';
 import { SignupFormComponent } from './signup/signup-form/signup-form.component';
+import { SigninFormComponent } from './signin/signin-form/signin-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { SignupFormComponent } from './signup/signup-form/signup-form.component'
     SignupComponent,
     SigninComponent,
     NewEventComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    SigninFormComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

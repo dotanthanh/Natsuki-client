@@ -186,6 +186,13 @@ app-signup, app-signin, app-new-event {
   height: 100%;
 }
 
+.navbar-nav li a {
+  padding: 0;
+  display: table-cell;
+  height: 100%;
+  box-sizing: border-box;
+}
+
 /*  end header section*/
 
 /*start banner section*/

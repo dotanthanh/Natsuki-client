@@ -28,4 +28,15 @@ export class UtilsService {
       return false;
     }
   }
+
+  inSignInLink() {
+    // get the window location href
+    const href = window.location.pathname;
+    // return true or false depend on the size of the window
+    if (href === '/signin') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
