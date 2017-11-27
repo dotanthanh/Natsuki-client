@@ -1,6 +1,6 @@
 <div *ngIf='largeSize()'>
   <a *ngIf='!inSignInLink()' (click)="signIn.open()">Sign In</a>
-  <a *ngIf='inSignInLink()'>Sign In</a>
+  <a *ngIf='inSignInLink()' routerLink='signin' >Sign In</a>
   <!-- to not use modal dialog when user on mobile viewport -->
   <modal #signIn
         [hideCloseButton]="true"

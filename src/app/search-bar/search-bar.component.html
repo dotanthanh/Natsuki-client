@@ -1,8 +1,19 @@
 <div class='search-bar'>
-  <form class='form-group'>
+
+  <!-- add handle submit -->
+
+  <form class='form-group' (ngSubmit)='search()'>
     <div class="inner-addon left-addon">
-      <i class="glyphicon glyphicon-search"></i>
-      <input type="text" class="form-control" placeholder="Search..." />
+      <i class="glyphicon glyphicon-search" (click)='search()'></i>
+
+<!-- ngModel for 2 ways databinding, instance variable
+    query of the component will get update syncronously -->
+      <input type="text"
+             name='search'
+             class="form-control"
+             [(ngModel)]='query'
+             placeholder="Search..." />
     </div>
   </form>
+
 </div>

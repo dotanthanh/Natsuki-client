@@ -21,6 +21,10 @@ import { NewEventComponent } from './new-event/new-event.component';
 import { SignupFormComponent } from './signup/signup-form/signup-form.component';
 import { SigninFormComponent } from './signin/signin-form/signin-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EventsDisplayComponent } from './events-display/events-display.component';
+import { PaginationComponent } from './events-display/pagination/pagination.component';
+import { HeadlineComponent } from './events-display/headline/headline.component';
+import { EventsContainerComponent } from './events-display/events-container/events-container.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NewEventComponent,
     SignupFormComponent,
     SigninFormComponent,
-    DashboardComponent
+    DashboardComponent,
+    EventsDisplayComponent,
+    PaginationComponent,
+    HeadlineComponent,
+    EventsContainerComponent
   ],
   imports: [
     BrowserModule,

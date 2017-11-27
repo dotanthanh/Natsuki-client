@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UtilsService } from '../../services/utils.service';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin-form',
@@ -15,7 +16,8 @@ export class SigninFormComponent implements OnInit {
   errorMessage = '';
 
   constructor( private utils: UtilsService,
-               private authService: AuthService) { }
+               private authService: AuthService,
+               private router: Router) { }
 
   ngOnInit() {
     this.signinForm = new FormGroup({
@@ -35,6 +37,7 @@ export class SigninFormComponent implements OnInit {
     //    and the when the request has error - save error message to display to UI
     request.subscribe(token => {
       this.authService.saveToken(token);
+      this.router.navigate(['/dashboard']);
     }, errorResponse => {
       this.failed = true;
       this.errorMessage = errorResponse.error.message;

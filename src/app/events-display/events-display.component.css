@@ -1,0 +1,10 @@
+section.events-display {
+  padding: 4% 8%;
+  font-family: 'Roboto';
+  letter-spacing: 0.5px;
+  color: rgba(0,0,0,0.8);
+}
+
+section div.container {
+  width: inherit;
+}

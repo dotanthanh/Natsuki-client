@@ -1,9 +1,10 @@
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { tokenNotExpired } from 'angular2-jwt';
 
 @Injectable()
 export class AuthService {
-  private tokenKey = 'natsuki-token';
+  private tokenKey = 'token';
 
   // declare for using HttpClient (communicate with the server by HTTP protocols)
   constructor(private http: HttpClient) {}
@@ -18,8 +19,7 @@ export class AuthService {
 
   // check if the app is currently authenticated
   isAuthenticated() {
-    const token = localStorage.getItem(this.tokenKey);
-    return token != null;
+    return tokenNotExpired() ;
   }
 
   // signing up, pass to the function user info
@@ -34,5 +34,10 @@ export class AuthService {
   // token handlings
   saveToken(token) {
     localStorage.setItem(this.tokenKey, JSON.stringify(token));
+  }
+
+  // signing out - delete the token in the localstorage
+  signOut() {
+    localStorage.removeItem(this.tokenKey);
   }
 }
