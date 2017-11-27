@@ -25,6 +25,8 @@ import { EventsDisplayComponent } from './events-display/events-display.componen
 import { PaginationComponent } from './events-display/pagination/pagination.component';
 import { HeadlineComponent } from './events-display/headline/headline.component';
 import { EventsContainerComponent } from './events-display/events-container/events-container.component';
+import { DataStorageService } from './services/data-storage.service';
+import { EventService } from './events-display/events.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { EventsContainerComponent } from './events-display/events-container/even
   ],
   providers: [
     AuthService,
-    UtilsService
+    UtilsService,
+    DataStorageService,
+    EventService
   ],
   bootstrap: [AppComponent]
 })

@@ -10,9 +10,9 @@ export class DataStorageService {
 
   // function take in the path where user make the request and
   // make the appropriate request to the server to get the searched events
-  getEvent(path) {
-    const request = this.http.get( this.hostname + 'events' + path.query );
+
+  search(query) {
+    const request = this.http.get( this.hostname + 'events/' + query);
     return request;
   }
-
 }

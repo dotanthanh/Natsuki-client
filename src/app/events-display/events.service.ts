@@ -1,14 +1,28 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpRequest } from '@angular/common/http';
+import { Subject } from 'rxjs/Subject';
+import { DataStorageService } from '../services/data-storage.service';
 
 @Injectable()
-export class DataStorageService {
+export class EventService {
 
-  searchedEvent: Object[] ;
+  private events = [] ;
+  eventsChanged = new Subject<any>();
 
-  constructor() {}
+  constructor( private http: HttpClient,
+               private dataService: DataStorageService ) {}
 
-  getEvent(url) {
+  getEvents() {
+    return this.events.slice();
+  }
 
+  requestEvent(query) {
+    this.dataService.search(query).subscribe(
+      (result: any) => {
+        this.events = result;
+        this.eventsChanged.next( this.events.slice() );
+      }
+    );
   }
 
 }

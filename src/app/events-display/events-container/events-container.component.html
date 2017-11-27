@@ -5,46 +5,17 @@
 </div>
 
 <div class='container items-container' id='events-list'>
-  <div class='row items-row'>
-    <div class='col-sm-3'>
-      <div class='event-item'>item</div>
-    </div>
-    <div class='col-sm-3'>
-      <div class='event-item'>item</div>
-    </div>
-    <div class='col-sm-3'>
-      <div class='event-item'>item</div>
-    </div>
-    <div class='col-sm-3'>
-      <div class='event-item'>item</div>
+
+  <div class='row items-row' *ngIf='events.length > 0; else nothing'>
+    <div class='col-sm-3' *ngFor='let event of events'>
+      <div class='event-item'> {{event.description}} </div>
     </div>
   </div>
-  <div class='row items-row'>
-    <div class='col-sm-3'>
-      <div class='event-item'>item</div>
-    </div>
-    <div class='col-sm-3'>
-      <div class='event-item'>item</div>
-    </div>
-    <div class='col-sm-3'>
-      <div class='event-item'>item</div>
-    </div>
-    <div class='col-sm-3'>
-      <div class='event-item'>item</div>
-    </div>
-  </div>
-  <div class='row items-row'>
-    <div class='col-sm-3'>
-      <div class='event-item'>item</div>
-    </div>
-    <div class='col-sm-3'>
-      <div class='event-item'>item</div>
-    </div>
-    <div class='col-sm-3'>
-      <div class='event-item'>item</div>
-    </div>
-    <div class='col-sm-3'>
-      <div class='event-item'>item</div>
-    </div>
-  </div>
+
+  <ng-template #nothing>
+    <p id='search-failed'>
+      <strong>Congratulation ! You found nothing (y) </strong>
+    </p>
+  </ng-template>
+
 </div>

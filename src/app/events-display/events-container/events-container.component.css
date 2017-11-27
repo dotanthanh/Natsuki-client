@@ -49,3 +49,9 @@ div#events-list div.items-row div div.event-item {
   height: 150px;
   margin: 7px;
 }
+
+p#search-failed {
+  margin: 50px;
+  text-align: center;
+  font-size: 22px;
+}

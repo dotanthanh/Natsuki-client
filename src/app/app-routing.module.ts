@@ -13,7 +13,7 @@ const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'events', children: [
     { path: '', component: EventsDisplayComponent },
-    { path: ':query', component: EventsDisplayComponent },
+    { path: 'search', component: EventsDisplayComponent },
     { path: 'category/:type', component: EventsDisplayComponent },
     { path: 'hot', component: EventsDisplayComponent },
   ] }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EventService } from '../events-display/events.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -10,7 +11,8 @@ export class SearchBarComponent implements OnInit {
 
   query: String = '';
 
-  constructor(private router: Router) { }
+  constructor( private router: Router,
+               private eventService: EventService ) { }
 
   ngOnInit() {
   }
@@ -21,7 +23,11 @@ export class SearchBarComponent implements OnInit {
     // process the keywords
     const query = this.query.replace(' ', '+');
 
-    this.router.navigate( ['events'], { queryParams: { keyword: query } } );
+    this.router.navigate( ['events/search'], { queryParams: { keyword: query } } );
+
+    if ( this.router.url.indexOf('/events/') > -1 ) {
+      this.eventService.requestEvent(query);
+    }
   }
 
 }
