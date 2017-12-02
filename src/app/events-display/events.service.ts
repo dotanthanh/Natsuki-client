@@ -9,8 +9,7 @@ export class EventService {
   private events = [] ;
   eventsChanged = new Subject<any>();
 
-  constructor( private http: HttpClient,
-               private dataService: DataStorageService ) {}
+  constructor( private dataService: DataStorageService ) {}
 
   getEvents() {
     return this.events.slice();

@@ -1,13 +1,15 @@
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
   private tokenKey = 'token';
 
   // declare for using HttpClient (communicate with the server by HTTP protocols)
-  constructor(private http: HttpClient) {}
+  constructor( private http: HttpClient,
+               private router: Router ) {}
 
   // signing in, passing to the function credentials - object containing
   // username and password for the request body
@@ -33,11 +35,19 @@ export class AuthService {
   // save token to localstorage, function to inject to form component to handle
   // token handlings
   saveToken(token) {
-    localStorage.setItem(this.tokenKey, JSON.stringify(token));
+    localStorage.setItem(this.tokenKey, token);
   }
 
   // signing out - delete the token in the localstorage
   signOut() {
     localStorage.removeItem(this.tokenKey);
+    console.log(this.router.url);
+    if (this.router.url === '/dashboard') {
+      this.router.navigate( [''] );
+    }
+  }
+
+  getToken() {
+    return localStorage.getItem( this.tokenKey );
   }
 }

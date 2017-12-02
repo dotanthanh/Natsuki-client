@@ -1,16 +1,22 @@
 <section class='events-profile'>
+
   <div class='container inner-wrap-events-profile'>
+
     <div class='utility-access'>
       <button class='new-event title'>Create Event</button>
       <button class='new-event title'>Friends</button>
+      <h3> Welcome {{user.username}} </h3>
     </div>
+
     <div class='events-profile-display'>
+
       <div class='type-tabs'>
         <a class='active title' href=''>active events  <span class='count'>(6)</span></a>
         <a class='title' href=''>joined events  <span class='count'>(6)</span></a>
         <a class='title' href=''>host events  <span class='count'>(6)</span></a>
         <a class='title' href=''>saved events  <span class='count'>(6)</span></a>
       </div>
+
       <div class='inner-search title'>
         <input type='text' placeholder="Search active/joined/host/saved event"/>
         <select>
@@ -18,9 +24,13 @@
           <option value='private'>Private</option>
         </select>
       </div>
+
       <div class='row events'>
+
         <div class='col-md-8'>
+
           <div class='events-list'>
+
             <div class='event-item'>
               <img style="height: 100%; width: 100%; object-fit: contain;"
                    src='http://i0.kym-cdn.com/photos/images/facebook/001/002/560/6fc.jpg'/>
@@ -41,14 +51,21 @@
               <img style="height: 100%; width: 100%; object-fit: contain;"
                    src='http://i0.kym-cdn.com/photos/images/facebook/000/815/652/694.jpg'/>
             </div>
+
           </div>
+
         </div>
+
         <div class='col-md-4 selected-event'>
           <div class='show-event'>
             haha
           </div>
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 </section>

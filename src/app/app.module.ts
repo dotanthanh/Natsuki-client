@@ -27,6 +27,9 @@ import { HeadlineComponent } from './events-display/headline/headline.component'
 import { EventsContainerComponent } from './events-display/events-container/events-container.component';
 import { DataStorageService } from './services/data-storage.service';
 import { EventService } from './events-display/events.service';
+import { DashboardService } from './dashboard/dashboard.service';
+import { AuthInterceptor } from './services/auth.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,13 @@ import { EventService } from './events-display/events.service';
     AuthService,
     UtilsService,
     DataStorageService,
-    EventService
+    EventService,
+    DashboardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

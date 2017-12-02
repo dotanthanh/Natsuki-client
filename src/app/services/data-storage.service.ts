@@ -15,4 +15,10 @@ export class DataStorageService {
     const request = this.http.get( this.hostname + 'events/' + query);
     return request;
   }
+
+  getDashboardInfo() {
+    const request = this.http.get( this.hostname + 'dashboard' );
+    return request;
+  }
+
 }
