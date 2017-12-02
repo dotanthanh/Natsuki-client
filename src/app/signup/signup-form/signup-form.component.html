@@ -1,0 +1,24 @@
+<div class='form'>
+  <h1 *ngIf='inSignUpLink()'>Sign Up</h1>
+  <form [formGroup]='signupForm'
+        class="register-form"
+        id='signup-form'>
+    <input formControlName='username' type="text" placeholder="username" />
+    <input formControlName='password' type="password" placeholder="password" />
+    <input formControlName='email' type="text" placeholder="email address" />
+    <span id='message' class='false'
+      *ngIf=' errorMessage!=="" && state=="failed" && signupForm.valid'>
+      {{errorMessage}}
+    </span>
+    <span id='message' class='invalid' *ngIf='signupForm.touched && !signupForm.valid'>
+      the info is not valid
+    </span>
+    <span id='message' class='success'
+      *ngIf='responseMessage!=="" && state=="success" && signupForm.valid'>
+      {{responseMessage}}
+    </span>
+    <button type='submit' id='create-account'
+            (click)='onSubmit()'
+            [disabled]='!signupForm.valid' > Create account </button>
+  </form>
+</div>

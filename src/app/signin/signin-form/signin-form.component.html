@@ -1,0 +1,19 @@
+<div class='form'>
+  <h1 *ngIf='inSignInLink()'>Sign In</h1>
+  <form [formGroup]='signinForm'
+        class="signin-form"
+        id='signin-form'>
+    <input formControlName='username' type="text" placeholder="username" />
+    <input formControlName='password' type="password" placeholder="password" />
+    <span id='message' class='false'
+      *ngIf=' failed && signinForm.valid'>
+      {{errorMessage}}
+    </span>
+    <span id='message' class='invalid' *ngIf='signinForm.touched && !signinForm.valid'>
+      the info is not valid
+    </span>
+    <button type='submit' id='signing-in'
+            (click)='onSubmit()'
+            [disabled]='!signinForm.valid' > Sign In </button>
+  </form>
+</div>

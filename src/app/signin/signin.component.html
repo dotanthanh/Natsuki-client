@@ -1,24 +1,21 @@
-<a *ngIf='largeSize()' (click)="signIn.open()">Sign In</a>
-<a *ngIf='!largeSize()' (click)="signIn.open()">Sign In</a>
-<modal #signIn
-      [hideCloseButton]="true"
-      [closeOnEscape]='false  '>
+<div *ngIf='largeSize()'>
+  <a *ngIf='!inSignInLink()' (click)="signIn.open()">Sign In</a>
+  <a *ngIf='inSignInLink()' routerLink='signin' >Sign In</a>
+  <!-- to not use modal dialog when user on mobile viewport -->
+  <modal #signIn
+        [hideCloseButton]="true"
+        [closeOnEscape]='false  '>
 
-  <modal-header id='signin-modal-header'>
-    Sign In
-  </modal-header>
+    <modal-header id='signin-modal-header'>
+      Sign in
+    </modal-header>
 
-  <modal-content>
-    <div class="form">
-      <form class="signin-form" id='signin-form'>
-        <input type="text" placeholder="username" />
-        <input type="password" placeholder="password" />
-        <button type='submit' id='signin-account' >Create account</button>
-      </form>
-    </div>
-  </modal-content>
+    <modal-content>
+      <app-signin-form></app-signin-form>
+    </modal-content>
 
-  <modal-footer>
-  </modal-footer>
+    <modal-footer>
+    </modal-footer>
 
-</modal>
+  </modal>
+</div>

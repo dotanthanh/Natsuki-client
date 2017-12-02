@@ -24,11 +24,6 @@ a:hover, a:visited, a:link, a:active {
     text-decoration: none;
 }
 
-/* keep the scroll bar when display modals ( to not affect the general layout ) */
-.modal-open {
-  overflow: scroll;
-}
-
 /*end general style*/
 
 /* start header seaction */
@@ -72,7 +67,7 @@ div.container-fluid div.mobile-header div.search-bar {
   position: absolute;
   margin: 0 6% 0 6%;
   height: 100%;
-  width: 35vw;
+  width: 40%;
 }
 
 div.container-fluid div.mobile-header div.search-bar form {
@@ -125,8 +120,8 @@ div.navbar-header {
   width: 50px;
   position: absolute;
   right: 0;
-  box-sizing: border-box;
   background-color: white;
+  box-sizing: border-box;
   margin: 25px 20px 25px 20px;
   border-radius: 0px;
   padding-left: 12.5px;
@@ -136,8 +131,8 @@ div.navbar-header {
   position: absolute;
   right: 0;
   height: 100% !important;
-  width: 40%;
-  padding: 10px 40px;
+  width: 45%;
+  padding: 10px 0;
   box-sizing: border-box;
   margin: 0 5% 0 5%;
   font-size: 11px;
@@ -145,6 +140,7 @@ div.navbar-header {
 
 ul.nav {
   height: 100%;
+  width: 100%;
   box-sizing: border-box;
   margin: 0;
   margin-right: 0;
@@ -188,6 +184,13 @@ app-signup, app-signin, app-new-event {
   color: rgba(0,0,0,0.8);
   width: 100%;
   height: 100%;
+}
+
+.navbar-nav li a {
+  padding: 0;
+  display: table-cell;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 /*  end header section*/
@@ -275,4 +278,19 @@ section .row .col-md-12 .item:hover, section .row .col-md-3 div:hover  {
     height: 120px;
     width: 120px;
   }
+}
+
+/* override modal default styling */
+
+div.modal-content {
+  border-radius: 2px;
+}
+
+div.modal-content div.modal-header {
+  background-color: rgba(241, 196, 15,0.8);
+}
+
+  /* keep the scroll bar when display modals ( to not affect the general layout ) */
+.modal-open {
+  overflow: scroll;
 }

@@ -1,26 +1,21 @@
-<a *ngIf='largeSize()' (click)="signUp.open()">Sign Up</a>
-<!-- to not use modal dialog when user on mobile viewport -->
-<a *ngIf='!largeSize()' (click)="signUp.open()">Sign Up</a>
-<modal #signUp
-      [hideCloseButton]="true"
-      [closeOnEscape]='false  '>
+<div *ngIf='largeSize()'>
+  <a *ngIf='!inSignUpLink()' (click)="signUp.open()">Sign Up</a>
+  <a *ngIf='inSignUpLink()' routerLink='signup'>Sign Up</a>
+  <!-- to not use modal dialog when user on mobile viewport -->
+  <modal #signUp
+        [hideCloseButton]="true"
+        [closeOnEscape]='false  '>
 
-  <modal-header id='signup-modal-header'>
-    Sign up
-  </modal-header>
+    <modal-header id='signup-modal-header'>
+      Sign up
+    </modal-header>
 
-  <modal-content>
-    <div class="form">
-      <form class="register-form" id='signup-form'>
-        <input type="text" placeholder="username" />
-        <input type="password" placeholder="password" />
-        <input type="text" placeholder="email address" />
-        <button type='submit' id='create-account' (click)='signUp()' >Create account</button>
-      </form>
-    </div>
-  </modal-content>
+    <modal-content>
+      <app-signup-form></app-signup-form>
+    </modal-content>
 
-  <modal-footer>
-  </modal-footer>
+    <modal-footer>
+    </modal-footer>
 
-</modal>
+  </modal>
+</div>
