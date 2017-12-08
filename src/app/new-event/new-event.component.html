@@ -1,1 +1,33 @@
-<a type='button' (click)='newEvent.open()'>New Event</a>
+<div class='new-event-form'>
+
+  <h2>New Event</h2>
+
+  <form id='new-event-form'>
+
+    <label for='event-name'></label>
+    <input type='text' required name='event-name' placeholder="event name"/>
+
+    <textarea rows='5'></textarea>
+
+    <select>
+      <option selected >select...</option>
+      <option>Cyberpunk</option>
+      <option>Machine Learning</option>
+      <option>Algorithm</option>
+      <option>Front-end</option>
+    </select>
+
+    <label for='start-time'></label>
+    <input type='time' required name='start-time'/>
+
+    <label for='end-time'></label>
+    <input type='datetime' required name='end-time'/>
+
+    <label for='hashtag'></label>
+    <input type='text' name='hashtag' placeholder="hashtag"/>
+
+    <button id='create-event' type='submit'>Create event</button>
+
+  </form>
+
+</div>

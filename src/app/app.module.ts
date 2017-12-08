@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ModalModule } from 'ng2-modal';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MyDatePickerModule } from 'mydatepicker';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -58,7 +59,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     HttpClientModule,
     ModalModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MyDatePickerModule
   ],
   providers: [
     AuthService,
