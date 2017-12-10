@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   private tokenKey = 'token';
   private jwt = new JwtHelper();
+  private hostname = process.env.API_ADDRESS;
 
   // declare for using HttpClient (communicate with the server by HTTP protocols)
   constructor( private http: HttpClient,
@@ -16,7 +17,7 @@ export class AuthService {
   // signing in, passing to the function credentials - object containing
   // username and password for the request body
   signIn(credentials: Object) {
-    const request = this.http.post('http://localhost:3000/signin', credentials);
+    const request = this.http.post( hostname + '/signin', credentials);
     // make the request and subscribe for response
     return request;
   }
@@ -30,7 +31,7 @@ export class AuthService {
   // username, password and email for the request body
   signUp(credentials: Object) {
     // make the request and subscribe for response
-    const request = this.http.post('http://localhost:3000/signup', credentials);
+    const request = this.http.post( hostname + 'signup', credentials);
     return request;
   }
 
@@ -44,9 +45,7 @@ export class AuthService {
   signOut() {
     localStorage.removeItem(this.tokenKey);
     console.log(this.router.url);
-    if (this.router.url === '/dashboard') {
-      this.router.navigate( [''] );
-    }
+    this.router.navigate( ['/'] );
   }
 
   getToken() {

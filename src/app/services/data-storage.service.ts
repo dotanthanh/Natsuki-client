@@ -4,7 +4,7 @@ import { HttpClient, HttpRequest } from '@angular/common/http';
 @Injectable()
 export class DataStorageService {
 
-  hostname = 'http://localhost:3000/';
+  hostname = process.env.API_ADDRESS;
 
   constructor( private http: HttpClient ) {}
 
@@ -12,7 +12,7 @@ export class DataStorageService {
   // make the appropriate request to the server to get the searched events
 
   search(query) {
-    const request = this.http.get( this.hostname + 'events/' + query);
+    const request = this.http.get( this.hostname + 'events/byname/' + query);
     return request;
   }
 

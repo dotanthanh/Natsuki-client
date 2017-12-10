@@ -4,7 +4,20 @@
 
     <div class='utility-access'>
       <button class='new-event title' routerLink='/new-event' >Create Event</button>
-      <button class='new-event title'>Friends</button>
+      <button class='new-event title' (click)='friends.open()' >Friends</button>
+
+      <modal #friends class='friends'>
+        <modal-header> <h4> FRIENDS </h4> </modal-header>
+        <modal-content>
+          <ul>
+            <li *ngFor='let friend of user.friends'>
+              {{ friend }}
+            </li>
+          </ul>
+        </modal-content>
+        <modal-header></modal-header>
+      </modal>
+
       <h3> Welcome, {{user.username}} </h3>
     </div>
 

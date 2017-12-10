@@ -26,10 +26,12 @@ import { PaginationComponent } from './events-display/pagination/pagination.comp
 import { HeadlineComponent } from './events-display/headline/headline.component';
 import { EventsContainerComponent } from './events-display/events-container/events-container.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
+
 import { DataStorageService } from './services/data-storage.service';
-import { EventService } from './events-display/events.service';
+import { EventsService } from './events-display/events.service';
 import { DashboardService } from './dashboard/dashboard.service';
 import { EventDetailService } from './event-detail/event-detail.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 import { AuthInterceptor } from './services/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -68,9 +70,10 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     AuthService,
     UtilsService,
     DataStorageService,
-    EventService,
+    EventsService,
     DashboardService,
     EventDetailService,
+    AuthGuardService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
