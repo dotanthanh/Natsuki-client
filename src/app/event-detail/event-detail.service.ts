@@ -7,7 +7,7 @@ import { JwtHelper } from 'angular2-jwt';
 @Injectable()
 export class EventDetailService {
 
-  private hostname = process.env.API_ADDRESS;
+  private hostname = 'http://natsuki.herokuapp.com/';
   private event;
   eventChanged = new Subject<any>();
   private jwt = new JwtHelper();

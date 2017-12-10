@@ -4,7 +4,7 @@ import { HttpClient, HttpRequest } from '@angular/common/http';
 @Injectable()
 export class DataStorageService {
 
-  hostname = process.env.API_ADDRESS;
+  hostname = 'http://natsuki.herokuapp.com/';
 
   constructor( private http: HttpClient ) {}
 
