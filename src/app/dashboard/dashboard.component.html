@@ -3,18 +3,32 @@
   <div class='container inner-wrap-events-profile'>
 
     <div class='utility-access'>
-      <button class='new-event title'>Create Event</button>
+      <button class='new-event title' routerLink='/new-event' >Create Event</button>
       <button class='new-event title'>Friends</button>
-      <h3> Welcome {{user.username}} </h3>
+      <h3> Welcome, {{user.username}} </h3>
     </div>
 
     <div class='events-profile-display'>
 
       <div class='type-tabs'>
-        <a class='active title' href=''>active events  <span class='count'>(6)</span></a>
-        <a class='title' href=''>joined events  <span class='count'>(6)</span></a>
-        <a class='title' href=''>host events  <span class='count'>(6)</span></a>
-        <a class='title' href=''>saved events  <span class='count'>(6)</span></a>
+
+        <a class='active title' [ngClass]='{isActive: mode==="active"}' (click)='switchTab($event)'>
+          active events
+          <span class='count'>({{ filter("active").length }})</span>
+        </a>
+        <a class='hosted title' [ngClass]='{isActive: mode==="hosted"}' (click)='switchTab($event)'>
+          hosted events
+          <span class='count'>({{user.hosted_events.length}})</span>
+        </a>
+        <a class='joined title' [ngClass]='{isActive: mode==="joined"}' (click)='switchTab($event)'>
+          joined events
+          <span class='count'>({{user.joined_events.length}})</span>
+        </a>
+        <a class='saved title' [ngClass]='{isActive: mode==="saved"}' (click)='switchTab($event)'>
+          saved events
+          <span class='count'>({{user.saved_events.length}})</span>
+        </a>
+
       </div>
 
       <div class='inner-search title'>
@@ -27,40 +41,34 @@
 
       <div class='row events'>
 
-        <div class='col-md-8'>
+        <div class='col-md-12'>
 
-          <div class='events-list'>
+          <div class='events-list row'>
 
-            <div class='event-item'>
-              <img style="height: 100%; width: 100%; object-fit: contain;"
-                   src='http://i0.kym-cdn.com/photos/images/facebook/001/002/560/6fc.jpg'/>
+            <div [routerLink]="'/events/id/'+ event._id"
+                 class='event-item'
+                 *ngFor='let event of filter(mode)'>
+              <div>
+                {{ event.name }}
+              </div>
             </div>
-            <div class='event-item'>
-              <img style="height: 100%; width: 100%; object-fit: contain;"
-                   src='https://ih1.redbubble.net/image.264246449.9046/poster%2C210x230%2Cf8f8f8-pad%2C210x230%2Cf8f8f8.lite-1u1.jpg'/>
-            </div>
-            <div class='event-item'>
-              <img style="height: 100%; width: 100%; object-fit: contain;"
-                   src='http://media4.teenormous.com/items/ih2.redbubble.net/image.15357201.6708-fc-550x550-white.u1.jpg'/>
-            </div>
-            <div class='event-item'>
-              <img style="height: 100%; width: 100%; object-fit: contain;"
-                   src='https://ih0.redbubble.net/image.182315031.0265/flat,800x800,075,f.u1.jpg'/>
-            </div>
-            <div class='event-item'>
-              <img style="height: 100%; width: 100%; object-fit: contain;"
-                   src='http://i0.kym-cdn.com/photos/images/facebook/000/815/652/694.jpg'/>
+
+            <div class='message' *ngIf='filter(mode).length==0'>
+              <div>
+                There is nothing with this filter. So sad man.
+              </div>
             </div>
 
           </div>
 
         </div>
 
-        <div class='col-md-4 selected-event'>
+        <!-- optional detail display when click on an event -->
+        <!-- <div class='col-md-4 selected-event'>
           <div class='show-event'>
             haha
           </div>
-        </div>
+        </div> -->
 
       </div>
 

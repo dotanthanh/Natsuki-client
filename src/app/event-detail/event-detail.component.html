@@ -1,0 +1,82 @@
+<section class='event-detail-container' *ngIf='event!=={}' >
+
+  <div class='banner-image'>
+    <!-- display event's image here. not supported image upload/display yet -->
+    <div class='top-shadow'></div>
+    {{ event.name }}
+    <div class='bottom-shadow'></div>
+  </div>
+
+  <div class='event-detail'>
+
+    <div class='status-button'>
+      <button [ngClass]='{ active: event.host===authService.decodeToken().username }'
+              disabled='true'>
+        <span *ngIf='event.host===authService.decodeToken().username'
+              class='glyphicon glyphicon-ok'></span> host
+      </button>
+      <button [ngClass]='{ active: didActionEvent("joined_events") }'
+              type='button' (click)='toggleJoin()'>
+        <span *ngIf='didActionEvent("joined_events")' class='glyphicon glyphicon-ok'></span> join
+      </button>
+      <button [ngClass]='{ active: didActionEvent("saved_events") }' 
+              type='button' (click)='toggleSave()'>
+        <span *ngIf='didActionEvent("saved_events")' class='glyphicon glyphicon-ok'></span> save
+      </button>
+    </div>
+
+    <div class='detail row'>
+
+      <div class='description col-md-9'>
+        <h4>Description</h4>
+        <p>
+          {{ event.description }}
+        </p>
+
+        <div class='list-tag'>
+
+          <button id='participants' type='button'
+                  (click)='participants.open()' >
+            Participants <span class='glyphicon glyphicon-list'></span>
+          </button>
+
+          <modal #participants class='list'>
+            <modal-header> <h5>PARTICIPANTs</h5> </modal-header>
+            <modal-content>
+              <ul>
+                <li *ngFor='let participant of event.participants'>
+                  {{ participant.user }}
+                </li>
+              </ul>
+            </modal-content>
+            <modal-footer></modal-footer>
+          </modal>
+
+          <span id='event-category'>
+            <strong>Category: </strong> {{ event.category }}
+          </span>
+        </div>
+
+      </div>
+
+      <div class='info col-md-3'>
+
+        <span class='wrap-span'>
+          Status  <span [id]='getStatus()' class='event-status'> {{ getStatus() }} </span>
+        </span>
+
+        <label for='start'> Event starts </label>
+        <input name='start' type='text' disabled
+               [value]='event.start_time' />
+
+        <label for='end'> Event ends </label>
+        <input name='end' type='text' disabled
+               [value]='event.end_time' />
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

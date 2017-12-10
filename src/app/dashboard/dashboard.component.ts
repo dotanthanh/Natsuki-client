@@ -11,13 +11,10 @@ export class DashboardComponent implements OnInit {
 
   private subscription: Subscription;
 
-  private user: {
-    username: String,
-    friends: {friend_id: String}[],
-    hosted_events: {event_id: String}[],
-    joined_events: {event_id: String}[],
-    saved_events: {event_id: String}[],
-  };
+  // object contain all user info
+  private user;
+  // mode of displaying event
+  private mode = 'active' || 'hosted' || 'joined' || 'saved';
 
   constructor(private dashboardService: DashboardService) { }
 
@@ -29,6 +26,7 @@ export class DashboardComponent implements OnInit {
     this.subscription = this.dashboardService.infoChanged.subscribe(
       (info) => {
         this.user = info;
+        console.log(info);
       }
     );
 
@@ -37,6 +35,45 @@ export class DashboardComponent implements OnInit {
 
     this.dashboardService.requestDashboardInfo();
 
+  }
+
+  // function to switch the tab and display different set of events
+
+  switchTab(event) {
+
+    // identify which tab was clicked on
+    const current_class = event.target.classList[0];
+    // change the mode according to the tab get clicked with switch case
+    switch (current_class) {
+      case 'hosted':
+        this.mode = 'hosted';
+        break;
+      case 'joined':
+        this.mode = 'joined';
+        break;
+      case 'saved':
+        this.mode = 'saved';
+        break;
+      default:
+        this.mode = 'active';
+        break;
+    }
+  }
+
+  // function to filter the events by mode
+  filter(mode) {
+    switch (mode) {
+      case 'hosted':
+        return this.user.hosted_events;
+      case 'joined':
+        return this.user.joined_events;
+      case 'saved':
+        return this.user.saved_events;
+      default:
+        // combine all events and then filter all events that haven't started yet
+        const all = [...this.user.hosted_events, ...this.user.joined_events, ...this.user.saved_events];
+        return all.filter( event => event.start_time > Date.now() );
+    }
   }
 
 }

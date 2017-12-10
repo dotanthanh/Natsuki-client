@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ModalModule } from 'ng2-modal';
+import { ModalModule } from 'ngx-modal';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MyDatePickerModule } from 'mydatepicker';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -26,9 +25,12 @@ import { EventsDisplayComponent } from './events-display/events-display.componen
 import { PaginationComponent } from './events-display/pagination/pagination.component';
 import { HeadlineComponent } from './events-display/headline/headline.component';
 import { EventsContainerComponent } from './events-display/events-container/events-container.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
 import { DataStorageService } from './services/data-storage.service';
 import { EventService } from './events-display/events.service';
 import { DashboardService } from './dashboard/dashboard.service';
+import { EventDetailService } from './event-detail/event-detail.service';
+
 import { AuthInterceptor } from './services/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -51,7 +53,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     EventsDisplayComponent,
     PaginationComponent,
     HeadlineComponent,
-    EventsContainerComponent
+    EventsContainerComponent,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     ModalModule,
     FormsModule,
     ReactiveFormsModule,
-    MyDatePickerModule
   ],
   providers: [
     AuthService,
@@ -68,6 +70,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     DataStorageService,
     EventService,
     DashboardService,
+    EventDetailService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

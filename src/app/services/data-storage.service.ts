@@ -6,7 +6,7 @@ export class DataStorageService {
 
   hostname = 'http://localhost:3000/';
 
-  constructor(private http: HttpClient) {}
+  constructor( private http: HttpClient ) {}
 
   // function take in the path where user make the request and
   // make the appropriate request to the server to get the searched events
@@ -18,6 +18,11 @@ export class DataStorageService {
 
   getDashboardInfo() {
     const request = this.http.get( this.hostname + 'dashboard' );
+    return request;
+  }
+
+  submitEvent( bodyObject ) {
+    const request = this.http.post( this.hostname + 'events/new', bodyObject );
     return request;
   }
 

@@ -2,31 +2,39 @@
 
   <h2>New Event</h2>
 
-  <form id='new-event-form'>
+  <form id='new-event-form' [formGroup]='form'
+        ngNativeValidate
+        (onSubmit)='onSubmit()' >
 
-    <label for='event-name'></label>
-    <input type='text' required name='event-name' placeholder="event name"/>
+    <input type='text' [required]='true' formControlName='eventName'
+           name='event-name' placeholder="event name" />
 
-    <textarea rows='5'></textarea>
+    <textarea rows='5' formControlName='description'
+              placeholder="description" [required]='true'></textarea>
 
-    <select>
-      <option selected >select...</option>
-      <option>Cyberpunk</option>
-      <option>Machine Learning</option>
-      <option>Algorithm</option>
-      <option>Front-end</option>
-    </select>
+    <select formControlName='category'>
+        <option [selected]='true' >select...</option>
+        <option>Cyberpunk</option>
+        <option>Machine Learning</option>
+        <option>Algorithm</option>
+        <option>Front-end</option>
+      </select>
 
     <label for='start-time'></label>
-    <input type='time' required name='start-time'/>
+    <input type='text' name='hashtag' formControlName='startTime' [required]='true'
+           placeholder="start time" onfocus="(this.type='datetime-local')" />
 
     <label for='end-time'></label>
-    <input type='datetime' required name='end-time'/>
+    <input type='text' name='hashtag' formControlName='endTime' [required]='true'
+           placeholder='end time' onfocus="(this.type='datetime-local')" />
 
-    <label for='hashtag'></label>
-    <input type='text' name='hashtag' placeholder="hashtag"/>
+    <span class='invalid' *ngIf='!authService.isAuthenticated() && form.touched'>
+          sign in to create your new event
+    </span>
 
-    <button id='create-event' type='submit'>Create event</button>
+    <button  id='create-event' type='submit'
+            [disabled]='!form.valid || !authService.isAuthenticated()'
+            (click)='onSubmit()' >Create event</button>
 
   </form>
 

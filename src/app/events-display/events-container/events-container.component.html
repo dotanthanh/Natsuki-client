@@ -8,7 +8,7 @@
 
   <div class='row items-row' *ngIf='events.length > 0; else nothing'>
     <div class='col-sm-3' *ngFor='let event of events'>
-      <div class='event-item'> {{event.description}} </div>
+      <div class='event-item' [routerLink]="'/events/id/'+ event._id"> {{event.name}} </div>
     </div>
   </div>
 

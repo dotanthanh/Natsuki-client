@@ -1,0 +1,158 @@
+
+.banner-image {
+  font-family: 'Roboto';
+  color: rgba(0,0,0,0.8);
+  font-size: 3em;
+	font-weight: 300;
+	letter-spacing: 0.1em;
+	display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 100vw;
+  height: 300px;
+  padding-left: 7vw;
+  padding-right: 7vw;
+  position: relative;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  background-color: rgba(41, 120, 180,0.7);
+}
+
+.banner-image div.top-shadow {
+  position: absolute;
+  top: 0;
+  left: 0 ;
+  right: 0;
+  width: 100%;
+  height: 100px;
+  box-shadow: inset 0 18px 20px -3px rgba(0,0,0,0.1);
+}
+
+div.bottom-shadow {
+  position: absolute;
+  bottom: 0;
+  left: 0 ;
+  right: 0;
+  width: 100%;
+  height: 100px;
+  box-shadow: inset 0px -18px 20px -3px rgba(0,0,0,0.1);
+}
+
+section div.event-detail {
+  padding: 7%;
+  font-size: 16px;
+}
+
+div.event-detail div.description, div.info {
+
+}
+
+section div.event-detail div.status-button {
+  display: flex;
+  justify-content: center;
+}
+
+div.status-button button {
+  border-radius: 2px;
+  border: solid 0px rgba(255,255,255,1);
+  padding: 8px 10px;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 20px 5px;
+  letter-spacing: 0.5px;
+  color: rgb(70,70,70);
+}
+
+div.detail {
+  margin: 20px 0;
+  padding: 0;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+div.description h4 {
+  margin: 20px 5px;
+}
+
+div.description p {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+div.list-tag {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+div.list-tag span#event-category, button {
+  margin: 15px 0;
+}
+
+div.list-tag button {
+  border-radius: 2px;
+  border: solid 0px rgba(255,255,255,1);
+  padding: 8px 10px;
+  background-color: rgba(41, 128, 185,0.8);
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  width: 130px;
+  height: 30px;
+}
+
+div.detail div.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.detail span.wrap-span {
+  margin: 20px 5px;
+  font-weight: bold;
+}
+
+div.detail span.event-status {
+  padding: 10px;
+  border-radius: 2px;
+  margin: 0 5px;
+}
+
+div.detail div.info input {
+  width: 150px;
+  padding-left: 5px;
+  outline: 0;
+  padding: 12px;
+  border: 0;
+  background: #f2f2f2;
+  margin: 5px 0;
+  font-size: 14px;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+
+/* styling for action here */
+
+div.status-button button.active {
+  color: white;
+  background-color: rgb(41, 168, 31);
+}
+
+modal.list modal-header {
+  text-align: center;
+}
+
+span#upcoming {
+  background: yellow;
+}
+
+span#opening {
+  background: rgb(41, 168, 31);
+  color: white;
+}
+
+span#closed {
+  background-color: red;
+  color: white;
+}
