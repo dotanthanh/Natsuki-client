@@ -1,5 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { PreloadAllModules } from '@angular/router';
+
 import { HomeComponent } from './home/home.component';
 import { SignupFormComponent } from './signup/signup-form/signup-form.component';
 import { SigninFormComponent } from './signin/signin-form/signin-form.component';
@@ -7,12 +9,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EventsDisplayComponent } from './events-display/events-display.component';
 import { NewEventComponent } from './new-event/new-event.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'signup', component: SignupFormComponent },
   { path: 'signin', component: SigninFormComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'new-event', component: NewEventComponent },
   { path: 'events', children: [
     { path: 'search', component: EventsDisplayComponent },
@@ -31,7 +34,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})
   ],
   exports: [RouterModule]
 })

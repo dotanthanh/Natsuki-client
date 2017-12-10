@@ -72,7 +72,12 @@ export class DashboardComponent implements OnInit {
       default:
         // combine all events and then filter all events that haven't started yet
         const all = [...this.user.hosted_events, ...this.user.joined_events, ...this.user.saved_events];
-        return all.filter( event => event.start_time > Date.now() );
+        return all.filter(
+          (event) => {
+            const start = new Date(event.start_time);
+            return start.getTime() > Date.now();
+          }
+        );
     }
   }
 

@@ -13,8 +13,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  // event handler for sign in 
-  signIn(){
+  // event handler for sign in
+  signIn() {
     this.authService.signIn({});
   }
 

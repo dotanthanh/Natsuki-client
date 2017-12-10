@@ -4,7 +4,7 @@ import { Subject } from 'rxjs/Subject';
 import { DataStorageService } from '../services/data-storage.service';
 
 @Injectable()
-export class EventService {
+export class EventsService {
 
   private events = [] ;
   eventsChanged = new Subject<any>();

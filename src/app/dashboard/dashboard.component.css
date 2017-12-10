@@ -117,7 +117,7 @@ div.events-list div.event-item {
   background-color: rgba(255,255,255,1);
   height: 230px;
   width: 29.33%;
-  margin: 5% 2% 5% 2%;
+  margin: 30px 2%;
   flex-direction: column;
   background-color: green;
 }
@@ -149,6 +149,18 @@ div.show-event {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 2px;
 }
+
+/* styling for modal start here */
+modal.friends modal-header {
+  text-align: center;
+}
+
+modal.friends modal-header h4 {
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+/* styling for modal ends here */
+
 
 @media (max-width: 575px) {
   div.events-list div.event-item {
