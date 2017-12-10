@@ -1,1 +1,41 @@
-<a type='button' (click)='newEvent.open()'>New Event</a>
+<div class='new-event-form'>
+
+  <h2>New Event</h2>
+
+  <form id='new-event-form' [formGroup]='form'
+        ngNativeValidate
+        (onSubmit)='onSubmit()' >
+
+    <input type='text' [required]='true' formControlName='eventName'
+           name='event-name' placeholder="event name" />
+
+    <textarea rows='5' formControlName='description'
+              placeholder="description" [required]='true'></textarea>
+
+    <select formControlName='category'>
+        <option [selected]='true' >select...</option>
+        <option>Cyberpunk</option>
+        <option>Machine Learning</option>
+        <option>Algorithm</option>
+        <option>Front-end</option>
+      </select>
+
+    <label for='start-time'></label>
+    <input type='text' name='hashtag' formControlName='startTime' [required]='true'
+           placeholder="start time" onfocus="(this.type='datetime-local')" />
+
+    <label for='end-time'></label>
+    <input type='text' name='hashtag' formControlName='endTime' [required]='true'
+           placeholder='end time' onfocus="(this.type='datetime-local')" />
+
+    <span class='invalid' *ngIf='!authService.isAuthenticated() && form.touched'>
+          sign in to create your new event
+    </span>
+
+    <button  id='create-event' type='submit'
+            [disabled]='!form.valid || !authService.isAuthenticated()'
+            (click)='onSubmit()' >Create event</button>
+
+  </form>
+
+</div>

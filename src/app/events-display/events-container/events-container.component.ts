@@ -18,11 +18,14 @@ export class EventsContainerComponent implements OnInit {
                private router: Router ) { }
 
   ngOnInit() {
+    // get the subscription and wait for changes made to our list of events
     this.subscription = this.eventService.eventsChanged.subscribe(
       (events) => {
         this.events = events;
       }
     );
+
+    // get initial value for events list
     this.events = this.eventService.getEvents();
 
     console.log(this.route);
@@ -30,7 +33,7 @@ export class EventsContainerComponent implements OnInit {
 
     const keyword = this.route.snapshot.queryParams.keyword;
     console.log(keyword);
-
+    
     this.eventService.requestEvent( keyword );
   }
 

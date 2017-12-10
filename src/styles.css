@@ -176,7 +176,7 @@ ul.nav {
   cursor: pointer;
 }
 
-app-signup, app-signin, app-new-event {
+app-signup, app-signin {
   display: table-cell;
   padding: 5px 0 5px 0;
   height: 100%;
