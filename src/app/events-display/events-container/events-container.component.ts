@@ -11,7 +11,7 @@ import { EventsService } from '../events.service';
 export class EventsContainerComponent implements OnInit {
 
   private subscription: Subscription;
-  private events = [];
+  public events = [];
   private sortMode = 'all' || 'bytime';
 
   constructor( private eventService: EventsService,

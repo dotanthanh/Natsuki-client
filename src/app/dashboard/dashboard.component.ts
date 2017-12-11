@@ -12,9 +12,9 @@ export class DashboardComponent implements OnInit {
   private subscription: Subscription;
 
   // object contain all user info
-  private user;
+  public user;
   // mode of displaying event
-  private mode = 'active' || 'hosted' || 'joined' || 'saved';
+  public mode = 'active' || 'hosted' || 'joined' || 'saved';
 
   constructor(private dashboardService: DashboardService) { }
 

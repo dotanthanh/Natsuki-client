@@ -11,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class EventDetailComponent implements OnInit {
 
-  private event;
+  public event;
   private subscription: Subscription;
 
   constructor( private router: Router,

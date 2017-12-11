@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-event.component.css']
 })
 export class NewEventComponent implements OnInit {
-  private form: FormGroup;
+  public form: FormGroup;
 
   constructor( private dataStorage: DataStorageService,
-               private authService: AuthService,
+               public authService: AuthService,
                private router: Router ) { }
 
   ngOnInit() {

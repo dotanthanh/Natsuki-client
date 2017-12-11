@@ -13,4 +13,9 @@ export class HeadlineComponent implements OnInit {
   ngOnInit() {
   }
 
+  // return the 'keyword' parameter associated with the route
+  getKeyword() {
+    return this.route.snapshot.queryParams.keyword;
+  }
+
 }
