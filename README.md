@@ -1,27 +1,40 @@
-# TicketApp
+# Client side - Natsuki
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.6.
+This is the client-side for a web app called Natsuki. The app is most like a small social network but for creating events and gatherings for different communities.
 
-## Development server
+The application is deployed and live at : https://natsuki.herokuapp.com/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## How to run locally
 
-## Code scaffolding
+### Run
+1. Navigate into the folder (in command line/terminal)
+2. Run `npm install` to install all required dependencies
+3. Run `ng serve` to start the development build scripts
+4. The application is now running at : http://localhost:4200
+5. If you want to see how the application work with connection to server, put the whole client-side to a folder in natsuki-server project folder, build and run normally. ( run `ng build --aot -prod` to build )
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Techs used
 
-## Build
+* Angular 4 with Bootstrap and supported components:
+  * [ngx-modal](https://github.com/Greentube/ngx-modal)
+  * [angular2-jwt](https://github.com/auth0/angular2-jwt)
+* Specific necessary features are supported by angular (Guard, Service, Interceptors)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Features
 
-## Running unit tests
+* Authentication fully works (sign up, sign in, sign out), including authentication protection for personal page
+* Search bar available at any route for searching, route for displaying search results implements
+* Search results can be sort based on time
+* Validation for forms are implemented (for example, when log in or sign up)
+* Page for individual event available, `join` and `save` buttons work, with instant update to database. List of participants can be shown
+* Personal page displays info of users' events which are sorted in different ways
+* Creating new events works. For now users can do all the basic actions with the application for practical (and its initial) purposes
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Features to implement
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Haven't separated authenticated personal page display and other users' pages
+* Layout for displaying a single event in search return page is currently broken
+* No functionality for feedback form
+* Users can't add each other for now
+* No route for daily feeds (hot events, categories page)
+* Edit mode is not established (for users' and events' information)   
